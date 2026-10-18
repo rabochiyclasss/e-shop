@@ -35,3 +35,4 @@ build/
 
 .env
 .DS_Store
+notes.txt
