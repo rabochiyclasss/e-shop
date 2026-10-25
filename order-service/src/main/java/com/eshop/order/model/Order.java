@@ -15,7 +15,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String customerID;
+    private String customerId;
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
@@ -28,6 +28,8 @@ public class Order {
     private String failureReason;
 
     private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OrderItem> items = new ArrayList<>();
@@ -42,8 +44,8 @@ public class Order {
         this.id = id;
     }
 
-    public void setCustomerID(String customerID){
-        this.customerID = customerID;
+    public void setCustomerId(String customerID){
+        this.customerId = customerID;
     }
 
     public void setStatus(OrderStatus status){
@@ -66,6 +68,10 @@ public class Order {
         this.createdAt = createdAt;
     }
 
+    public void setUpdatedAt(LocalDateTime updatedAt){
+        this.updatedAt = updatedAt;
+    }
+
     public void setItems(List<OrderItem> items){
         this.items = items;
     }
@@ -76,7 +82,7 @@ public class Order {
     }
 
     public String getCustomerId(){
-        return customerID;
+        return customerId;
     }
 
     public OrderStatus getStatus(){
