@@ -105,6 +105,10 @@ public class Order {
         return createdAt;
     }
 
+    public LocalDateTime getUpdatedAt(){
+        return updatedAt;
+    }
+
     public List<OrderItem> getItems(){
         return items;
     }
